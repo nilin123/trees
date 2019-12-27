@@ -26,7 +26,7 @@ edges=set({})
 for i in range(n):
     for j in N[i]:
         edges.add((i,j))
-lc=LineCollection([(V[i],V[j]) for (i,j) in edges],color='b',linewidth=.5,zorder=-1)
+lc=LineCollection([(V[i],V[j]) for (i,j) in edges],color=[(.6,.6,1)],linewidth=.5,zorder=-1)
 ax.add_collection(lc)
 
 def ball(c,R):
@@ -39,12 +39,12 @@ def ball(c,R):
         S=set.difference(S,B)
         B=set.union(B,S)
     return [[i for i in B],[i for i in S]]
-
-[B,S]=ball(0,int(input("red ball radius: ")))
+c=int(input("center index: "))
+[B,S]=ball(c,int(input("red ball radius: ")))
 #print(B)
-ax.scatter([X[i] for i in B],[Y[i] for i in B],s=2,color='r')    
-ax.scatter([X[i] for i in S],[Y[i] for i in S],s=50,color='r')    
-ax.scatter([X[0]],[Y[0]],s=50,color='r')
+ax.scatter([X[i] for i in B],[Y[i] for i in B],s=3,color='r')    
+ax.scatter([X[i] for i in S],[Y[i] for i in S],marker="2",s=30,color=[(0,0,0)])    
+ax.scatter([X[c]],[Y[c]],s=100,color=[(0,0,0)])
 
 #outname=input("output destination")
 outname="figures/400.pdf"
