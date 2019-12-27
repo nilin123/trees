@@ -30,4 +30,7 @@ else:
         ax.plot([v[0] for v in path],[v[1] for v in path],[v[2] for v in path],color='#0000dd')
 
 
-plt.show()
+#plt.show()
+
+outname=input("output destination")
+plt.savefig(outname)
